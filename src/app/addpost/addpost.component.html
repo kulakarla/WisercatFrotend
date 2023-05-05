@@ -1,0 +1,74 @@
+<body class="bg-light">
+
+    <div class="container d-flex flex-column align-items-center">
+        <div class="py-5 text-center">
+            <h2>Add a new pet</h2>
+        </div>
+
+        <div class="w-25">
+            <div class="col-md-12 order-md-1">
+                <form class="needs-validation" novalidate>
+                    <div class="mb-3">
+                        <label for="name">Name</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="name" placeholder="Name">
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="code">Code</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="code" placeholder="Code">
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="types">Type</label>
+                        <select class="form-select" id="types">
+                            <option value="">Choose...</option>
+                            <option>Cat</option>
+                            <option>Dog</option>
+                            <option>Horse</option>
+                            <option>Rabbit</option>
+                            <option>Parrot</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="colors">Fur color</label>
+                        <select class="form-select" id="colors">
+                            <option value="">Choose...</option>
+                            <option>Black</option>
+                            <option>White</option>
+                            <option>Brown</option>
+                            <option>Yellow</option>
+                            <option>Blue</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="countries">Country of origin</label>
+                        <select class="form-select" id="countries">
+                            <option value="">Choose...</option>
+                            <option>Estonia</option>
+                            <option>Latvia</option>
+                            <option>Lithuania</option>
+                            <option>Finland</option>
+                            <option>Sweden</option>
+                            <option>Norway</option>
+                        </select>
+                    </div>
+
+                    <button class="btn btn-primary btn-lg btn-block"
+                            type="submit">
+                        Add Pet
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <footer class="my-5 pt-5 text-muted text-center text-small">
+            <p class="mb-1">&copy; 2022 Wisercat</p>
+        </footer>
+    </div>
+</body>

@@ -1,0 +1,39 @@
+<body class="bg-light">
+    <div class="container">
+        <div class="py-5 text-center">
+            <h2>Pets</h2>
+        </div>
+    
+        <div class="row">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Code</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Fur color</th>
+                    <th scope="col">Country</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let pet of pets; let i = index" scope="row">
+                        <th>{{i + 1}} </th>
+                        <td>{{ pet.name }}</td>
+                        <td>{{ pet.id_code }}</td>
+                        <td>{{ pet.animal }}</td>
+                        <td>{{ pet.color }}</td>
+                        <td>{{ pet.country }}</td>
+                        <td>
+                            <a href="add.html" class="btn btn-primary">Edit pet</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <a routerLink="/addpost" class="btn btn-primary">Add pet</a>
+    </div>
+</body>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,28 @@
+{
+    "Pets": [
+        {
+            "id": 1,
+            "id_code": "955e102f-ec26-47e0-ab08-f9bd3183b5aa",
+            "name": "kuki",
+            "animal": "lovi",
+            "color": "red",
+            "country": "afghan",
+            "user": {
+                "id": 5,
+                "username": "pede"
+            }
+        },
+        {
+            "id": 2,
+            "id_code": "955e102f-ec26-47e0-ab08-f9bd3183b5aa",
+            "name": "ASD",
+            "animal": "loASDvi",
+            "color": "SD",
+            "country": "SD",
+            "user": {
+                "id": 6,
+                "username": "pede"
+            }
+        }
+    ]
+}
