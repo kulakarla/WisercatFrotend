@@ -15,6 +15,10 @@ export class PetService {
     
     constructor(private http: HttpClient) {}
 
+    public addPet(pet: Pet){
+        return this.http.post(this.url, pet);
+    }
+
     
     public getPets(): Observable<Pet[]>{
         console.log("Trying to fetch pets...")
