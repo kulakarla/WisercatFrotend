@@ -1,7 +1,11 @@
-import { HttpClient } from '@angular/common/http'
+import { HttpClient, HttpParams } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 import { Pet } from '../models/Pet';
 import { Observable } from 'rxjs';
+import { HttpHeaders } from '@angular/common/http';
+import { StorageService } from './storage.service';
+
+const PET_API = 'http://localhost:8080/api/pet/';
 
 
 
@@ -10,19 +14,20 @@ import { Observable } from 'rxjs';
 })
 export class PetService {
 
-    private url: string = 'http://localhost:8080/api/pet';
     
     
-    constructor(private http: HttpClient) {}
-
+    constructor(private http: HttpClient, private storageService: StorageService) {}
+    
+ 
     public addPet(pet: Pet){
-        return this.http.post(this.url, pet);
+        return this.http.post(PET_API, pet);
     }
 
     
     public getPets(): Observable<Pet[]>{
         console.log("Trying to fetch pets...")
-        return this.http.get<Pet[]>(this.url);
+        const headers = new HttpHeaders().set('Content-Type', 'application/json');
+        return this.http.get<Pet[]>(PET_API + this.storageService.getUser(), { headers});
     }
 
 }
