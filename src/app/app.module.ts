@@ -7,12 +7,14 @@ import { MainviewComponent } from './mainview/mainview.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AddpostComponent } from './addpost/addpost.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainviewComponent,
-    AddpostComponent
+    AddpostComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

@@ -7,24 +7,24 @@
         <div class="w-25">
             <div class="col-md-12 order-md-1">
                 
-                <form class="needs-validation">
+                <form class="needs-validation" [formGroup]="addPostForm" (ngSubmit)="onSubmit()">
                     <div class="mb-3">
                         <label for="name">Name</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="name" placeholder="Name">
+                            <input type="text" class="form-control" id="name" placeholder="Name" formControlName="name">
                         </div>
                     </div>
 
                     <div class="mb-3">
                         <label for="code">Code</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="code" placeholder="Code">
+                            <input type="text" class="form-control" id="code" placeholder="Code" formControlName="code">
                         </div>
                     </div>
 
                     <div class="mb-3">
                         <label for="types">Type</label>
-                        <select class="form-select" id="types">
+                        <select class="form-select" id="types" formControlName="animal">
                             <option value="">Choose...</option>
                             <option>Cat</option>
                             <option>Dog</option>
@@ -35,7 +35,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="colors">Fur color</label>
-                        <select class="form-select" id="colors">
+                        <select class="form-select" id="colors" formControlName="color">
                             <option value="">Choose...</option>
                             <option>Black</option>
                             <option>White</option>
@@ -47,7 +47,7 @@
 
                     <div class="mb-3">
                         <label for="countries">Country of origin</label>
-                        <select class="form-select" id="countries">
+                        <select class="form-select" id="countries" formControlName="country">
                             <option value="">Choose...</option>
                             <option>Estonia</option>
                             <option>Latvia</option>
