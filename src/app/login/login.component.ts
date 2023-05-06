@@ -30,18 +30,6 @@ export class LoginComponent {
     const { username, password } = this.form;
 
 
-    // this.authService
-    //   .login(username, password)
-    //   .subscribe((response) => {
-    //     console.log(response);
-    //     this.router.navigate(['/'])
-    //   }),
-    //   (error) => {
-    //     console.log("Login failed");
-    //     this.errorMessage = error.error.message;
-    //     this.isLoginFailed = true;
-    //   }
-
     this.authService.login(username, password).subscribe(
       res => {
         console.log(res);
@@ -60,34 +48,6 @@ export class LoginComponent {
       () => console.log("HTTP request completed")
     );
     
-  
-    // this.authService.login(username, password).subscribe({
-    //   next: data => {
-    //     console.log("Succesful login");
-    //     this.storageService.saveUser(data);
-    //     this.isLoginFailed = false;
-    //     this.isLoggedIn = true;
-    //     this.router.parseUrl("/");
-
-      // this.authService.login(username, password).pipe(
-      //   tap((response: any) => {
-      //     console.log(response);
-      //     this.storageService.saveUser(response);
-      //     this.isLoginFailed = false;
-      //     this.isLoggedIn = true;
-      //     this.router.parseUrl("/")
-      //   })
-      // )
-    
-      // console.log(this.authService.login(username, password))
-    //   },
-    //   error: err => {
-    //     console.log("Login failed")
-    //     this.errorMessage = err.error.message;
-    //     this.isLoginFailed = true;
-    //   }
-    // });
-
   }
 
   reloadPage(): void {

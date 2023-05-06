@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core'
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
+import { StorageService } from './storage.service';
 
 
 const AUTH_API = 'http://localhost:8080/api/auth/';
@@ -15,7 +17,7 @@ const httpOptions = {
 })
 export class AuthService {
 
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient, private router: Router, private storageService: StorageService) { }
 
     login(username: string, password: string): Observable<any> {
         return this.http.post(
@@ -29,6 +31,8 @@ export class AuthService {
     }
 
     logout(): Observable<any>{
+        this.storageService.removeLogin();
+        this.router.navigate(['/login'])
         return this.http.post(AUTH_API + 'logout', {}, httpOptions)
     }
 
