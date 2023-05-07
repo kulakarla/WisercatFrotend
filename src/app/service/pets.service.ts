@@ -27,7 +27,7 @@ export class PetService {
     public getPets(): Observable<Pet[]>{
         console.log("Trying to fetch pets...")
         const headers = new HttpHeaders().set('Content-Type', 'application/json');
-        return this.http.get<Pet[]>(PET_API + this.storageService.getUser(), { headers});
+        return this.http.get<Pet[]>(PET_API + this.storageService.getUser(), { headers });
     }
 
 }

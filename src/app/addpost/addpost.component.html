@@ -11,51 +11,53 @@
                     <div class="mb-3">
                         <label for="name">Name</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="name" placeholder="Name" formControlName="name">
+                            <input type="text" class="form-control" id="name" formControlName="name" required>
+                        </div>
+                        <div *ngIf="name.errors?.['required'] && name.touched" class="invalid-feedback d-block" role="alert">
+                            Name is required
                         </div>
                     </div>
 
                     <div class="mb-3">
                         <label for="code">Code</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="code" placeholder="Code" formControlName="code">
+                            <input type="text" class="form-control" id="code" formControlName="code" required>
+                        </div>
+                        <div *ngIf="code.errors?.['required'] && code.touched" class="invalid-feedback d-block" role="alert">
+                            Code is required
                         </div>
                     </div>
 
                     <div class="mb-3">
                         <label for="types">Type</label>
-                        <select class="form-select" id="types" formControlName="animal">
-                            <option value="">Choose...</option>
-                            <option>Cat</option>
-                            <option>Dog</option>
-                            <option>Horse</option>
-                            <option>Rabbit</option>
-                            <option>Parrot</option>
+                        <select class="form-select" id="types" formControlName="animal" required>
+                            <option selected disabled value>Choose...</option>
+                            <option [value]="animal.name" *ngFor="let animal of animalList">{{ animal.name }}</option>
                         </select>
+                        <div *ngIf="animal.errors?.['required'] && animal.touched" class="invalid-feedback d-block" role="alert">
+                            Type is required
+                        </div>
                     </div>
                     <div class="mb-3">
                         <label for="colors">Fur color</label>
-                        <select class="form-select" id="colors" formControlName="color">
-                            <option value="">Choose...</option>
-                            <option>Black</option>
-                            <option>White</option>
-                            <option>Brown</option>
-                            <option>Yellow</option>
-                            <option>Blue</option>
+                        <select class="form-select" id="colors" formControlName="color" required>
+                            <option selected disabled value>Choose...</option>
+                            <option [value]="color.name" *ngFor="let color of colorList">{{ color.name }}</option>
                         </select>
+                        <div *ngIf="color.errors?.['required'] && color.touched" class="invalid-feedback d-block" role="alert">
+                            Color is required
+                        </div>
                     </div>
 
                     <div class="mb-3">
                         <label for="countries">Country of origin</label>
-                        <select class="form-select" id="countries" formControlName="country">
-                            <option value="">Choose...</option>
-                            <option>Estonia</option>
-                            <option>Latvia</option>
-                            <option>Lithuania</option>
-                            <option>Finland</option>
-                            <option>Sweden</option>
-                            <option>Norway</option>
+                        <select class="form-select" id="countries" formControlName="country" required>
+                            <option selected disabled value>Choose...</option>
+                            <option [value]="country.name" *ngFor="let country of countryList">{{ country.name }}</option>
                         </select>
+                        <div *ngIf="country.errors?.['required'] && country.touched" class="invalid-feedback d-block" role="alert">
+                            Country is required
+                        </div>
                     </div>
 
                     <button class="btn btn-primary btn-lg btn-block"
