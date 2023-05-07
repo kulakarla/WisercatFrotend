@@ -1,3 +1,4 @@
+<app-nav-bar></app-nav-bar>
 <body class="bg-light">
     <div class="container">
         <div class="py-5 text-center">
@@ -21,7 +22,7 @@
                     <tr *ngFor="let pet of pets; let i = index" scope="row">
                         <th>{{i + 1}} </th>
                         <td>{{ pet.name }}</td>
-                        <td>{{ pet.id_code }}</td>
+                        <td>{{ pet.idCode }}</td>
                         <td>{{ pet.animal }}</td>
                         <td>{{ pet.color }}</td>
                         <td>{{ pet.country }}</td>
@@ -33,7 +34,6 @@
             </table>
         </div>
         <a routerLink="/addpost" class="btn btn-primary">Add pet</a>
-        <button (click)="logout()">Logout</button>
     </div>
 </body>
 

@@ -11,7 +11,8 @@ import { AuthService } from '../service/auth.service';
 export class MainviewComponent implements OnInit {
   pets: Pet[] = [];
 
-  constructor(public petService: PetService, private authService: AuthService){}
+
+  constructor(public petService: PetService){}
 
   ngOnInit(): void {
     this.petService.getPets().subscribe((response => {
@@ -20,9 +21,8 @@ export class MainviewComponent implements OnInit {
     ))
   }
 
-  logout(){
-    this.authService.logout();
-  }
+  
+  
 }
 
 

@@ -38,6 +38,7 @@ export class LoginComponent {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
       },
+      
       err => {
         console.log("Login failed");
         console.log(err);

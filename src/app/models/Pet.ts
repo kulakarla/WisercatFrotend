@@ -2,15 +2,15 @@
 
 export class Pet {
     id: number;
-    id_code: string;
+    idCode: string;
     name: string;
     animal: string;
     color: string;
     country: string;
 
-    public constructor(id: number, id_code: string, name: string, animal: string, color: string, country: string){
+    public constructor(id: number, idCode: string, name: string, animal: string, color: string, country: string){
         this.id = id;
-        this.id_code = id_code;
+        this.idCode = idCode;
         this.name = name;
         this.animal = animal;
         this.color = color;

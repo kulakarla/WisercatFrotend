@@ -19,11 +19,11 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="code">Code</label>
+                        <label for="idCode">Code</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="code" formControlName="code" required>
+                            <input type="text" class="form-control" id="idCode" formControlName="idCode" required>
                         </div>
-                        <div *ngIf="code.errors?.['required'] && code.touched" class="invalid-feedback d-block" role="alert">
+                        <div *ngIf="idCode.errors?.['required'] && idCode.touched" class="invalid-feedback d-block" role="alert">
                             Code is required
                         </div>
                     </div>
@@ -61,9 +61,18 @@
                     </div>
 
                     <button class="btn btn-primary btn-lg btn-block"
-                            type="submit">
+                            type="submit" [disabled]="!addPostForm">
                         Add Pet
                     </button>
+
+                    <div class="form group mt-2">
+                        <div class="alert alert-danger"
+                            role="alert"
+                            *ngIf="formSubmitted && addPostFailed">
+                            Pet adding failed: {{ errorMessage }}
+                        </div>  
+                    </div>
+
                 </form>
             </div>
         </div>

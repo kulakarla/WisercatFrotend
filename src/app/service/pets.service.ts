@@ -6,7 +6,7 @@ import { HttpHeaders } from '@angular/common/http';
 import { StorageService } from './storage.service';
 
 const PET_API = 'http://localhost:8080/api/pet/';
-
+const headers = new HttpHeaders().set('Content-Type', 'application/json');
 
 
 @Injectable({
@@ -19,14 +19,14 @@ export class PetService {
     constructor(private http: HttpClient, private storageService: StorageService) {}
     
  
-    public addPet(pet: Pet){
-        return this.http.post(PET_API, pet);
+    public addPet(pet: any): Observable<any>{
+        console.log("Button pressed");
+        return this.http.post(PET_API + this.storageService.getUser() + "/add", pet, { headers });
     }
 
     
     public getPets(): Observable<Pet[]>{
         console.log("Trying to fetch pets...")
-        const headers = new HttpHeaders().set('Content-Type', 'application/json');
         return this.http.get<Pet[]>(PET_API + this.storageService.getUser(), { headers });
     }
 
