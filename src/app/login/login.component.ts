@@ -40,10 +40,8 @@ export class LoginComponent {
       },
       
       err => {
-        console.log("Login failed");
         console.log(err);
-        this.errorMessage = err.error;
-        console.log("DEBUGDEBUG");
+        this.errorMessage = "Bad credentials";
         this.isLoginFailed = true;
       },
       () => console.log("HTTP request completed")

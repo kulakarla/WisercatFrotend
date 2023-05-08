@@ -90,7 +90,7 @@ export class EditpetComponent {
         },
         error => {
           console.log(error);
-          this.errorMessage = error.error;
+          this.errorMessage = "Pet data is invalid and/or ID may be already taken";
           this.editPetFailed = true;
         },
         () => console.log("HTTP Request complete")

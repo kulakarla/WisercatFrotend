@@ -66,12 +66,13 @@ export class AddPetComponent implements OnInit {
       console.log(this.addPetForm.value);
       this.petService.addPet(this.addPetForm.value).subscribe(
         response => {
+          console.log(response);
           this.addPetFailed = false;
           this.router.navigate(['/'])
         },
         error => {
           console.log(error);
-          this.errorMessage = error.error;
+          this.errorMessage = "Pet data is invalid and/or ID may be already taken";
           this.addPetFailed = true;
         },
         () => console.log("HTTP Request complete")
