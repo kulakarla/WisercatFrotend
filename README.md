@@ -4,10 +4,34 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Front end run
 
+Clone repository<br>
+
+``
+    git clone https://github.com/kulakarla/WisercatFrotend.git
+``
+
+Install dependecies
+
+
+``
+    npm install
+``
+
+#### Run Application
+
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
 
 ## Back end run
+
+Clone repository
+
+``
+    git clone https://github.com/kulakarla/WisercatBackend.git
+``
+
+#### Run API
+
 
 Download the application. Navigate to `src/main/java/excercises/wisercat3/Wisercat3Application.java`. Run `main()` method. The API is running on
 `http://localhost:8080/`
@@ -29,9 +53,9 @@ SpringBoot version 3.0.6
 
 User password must be atleast of length 5
 Users can enter their pet id codes themselves, however, they must be exactly 8 digits long
-Every pet id code must be unique, the user must enter a new one if their desired one alreayd exists
+Every pet id code must be unique, the user must enter a new one if their desired one already exists
 Pet name can be any string of length 1
-Pet type (animal), fur color and country can only be predefined values from the database, user cannot 
+Pet type (animal), fur color and country can only be predefined values from the database, user cannot
 
 
 
