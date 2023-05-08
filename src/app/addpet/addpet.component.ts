@@ -7,12 +7,12 @@ import { Router } from '@angular/router';
 
 
 @Component({
-  selector: 'app-addpost',
-  templateUrl: './addpost.component.html',
-  styleUrls: ['./addpost.component.css']
+  selector: 'app-addpet',
+  templateUrl: './addpet.component.html',
+  styleUrls: ['./addpet.component.css']
 })
-export class AddpostComponent implements OnInit{
-  title = 'AddPost';
+export class AddPetComponent implements OnInit {
+  title = 'AddPet';
 
   addPostForm: FormGroup;
 
@@ -21,19 +21,19 @@ export class AddpostComponent implements OnInit{
   animalList: any;
 
   countryList: any;
-  
+
   errorMessage: string;
 
   addPostFailed: any;
 
   formSubmitted: boolean;
 
-  constructor(private petService: PetService, private optionService: OptionService, private router: Router){ 
-    
-  }
-    
+  constructor(private petService: PetService, private optionService: OptionService, private router: Router) {
 
-  ngOnInit(){
+  }
+
+
+  ngOnInit() {
 
     this.optionService.getAnimals().subscribe((response => {
       this.animalList = response;
@@ -46,7 +46,7 @@ export class AddpostComponent implements OnInit{
     this.optionService.getCountries().subscribe((response => {
       this.countryList = response;
     }));
-    
+
 
 
     this.addPostForm = new FormGroup({
@@ -60,24 +60,24 @@ export class AddpostComponent implements OnInit{
 
   }
 
-  onSubmit(){
+  onSubmit() {
     this.formSubmitted = true;
-    if(this.addPostForm.valid){
+    if (this.addPostForm.valid) {
       console.log(this.addPostForm.value);
       this.petService.addPet(this.addPostForm.value).subscribe(
         response => {
-        console.log(response);
-        this.addPostFailed = false;
-        this.router.navigate(['/'])
-      }, 
-      error => {
-        console.log(error);
-        this.errorMessage = error.error;
-        this.addPostFailed = true;
-      }, 
-      () => console.log("HTTP Request complete")
+          console.log(response);
+          this.addPostFailed = false;
+          this.router.navigate(['/'])
+        },
+        error => {
+          console.log(error);
+          this.errorMessage = error.error;
+          this.addPostFailed = true;
+        },
+        () => console.log("HTTP Request complete")
       );
-    }else{
+    } else {
       this.errorMessage = 'Please fill all the required fields';
       this.addPostFailed = true;
     }
@@ -87,12 +87,12 @@ export class AddpostComponent implements OnInit{
 
   get idCode() { return this.addPostForm.get('idCode'); }
 
-  get animal() { return this.addPostForm.get('animal')};
+  get animal() { return this.addPostForm.get('animal') };
 
-  get color() { return this.addPostForm.get('color')};
+  get color() { return this.addPostForm.get('color') };
 
-  get country() { return this.addPostForm.get('country')};
-   
+  get country() { return this.addPostForm.get('country') };
+
 
 
 

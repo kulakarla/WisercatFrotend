@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, CanActivate } from '@angular/router';
 import { MainviewComponent } from './mainview/mainview.component';
-import { AddpostComponent } from './addpost/addpost.component';
+import { AddPetComponent } from './addpet/addpet.component';
 import { LoginComponent } from './login/login.component';
 import { authGuard } from './service/authguard.service';
 
@@ -12,7 +12,7 @@ const routes: Routes = [
   },
   {
     path: 'addpost', 
-    component: AddpostComponent,
+    component: AddPetComponent,
     canActivate: [authGuard]
   },
   {
