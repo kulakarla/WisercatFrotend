@@ -1,5 +1,5 @@
 <app-nav-bar></app-nav-bar>
-<body class="bg-light">
+<body class="vh-100 bg-light">
     <div class="container">
         <div class="py-5 text-center">
             <h2>Pets</h2>
@@ -15,7 +15,7 @@
                     <th scope="col" sortable="animal" (sort)="onSort($event)">Type</th>
                     <th scope="col" sortable="color" (sort)="onSort($event)">Fur color</th>
                     <th scope="col" sortable="country" (sort)="onSort($event)">Country</th>
-                    <th></th>
+                    <th width="100" class="text-center">Edit</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -37,6 +37,7 @@
         <a routerLink="/addpost" class="btn btn-primary">Add pet</a>
     </div>
 </body>
+
 
 <!-- EDIT PET MODAL -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
