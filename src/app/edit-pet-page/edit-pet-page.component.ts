@@ -4,7 +4,6 @@ import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { OptionService } from '../service/option-service.component';
 import { Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Pet } from '../models/Pet';
 import { combineLatest } from 'rxjs';
 import { StorageService } from '../service/storage.service';
 
@@ -44,7 +43,7 @@ export class EditPetPageComponent {
 
     this.petInput = this.storageService.getPet();
     this.editPetForm = new FormGroup({
-      idCode: new FormControl(this.petInput.idCode, [ Validators.required, Validators.pattern("[0-9]{8}")]),
+      idCode: new FormControl(this.petInput.idCode, [Validators.required, Validators.pattern("[0-9]{8}")]),
       name: new FormControl(this.petInput.name, Validators.required),
       color: new FormControl('', Validators.required),
       animal: new FormControl('', Validators.required),
@@ -72,9 +71,9 @@ export class EditPetPageComponent {
     })
   }
 
-  onSubmit(){
+  onSubmit() {
     this.formSubmitted = true;
-    if(this.editPetForm.valid){
+    if (this.editPetForm.valid) {
       const fullPetResponse = {
         id: this.editPetId,
         name: this.editPetForm.value.name,
@@ -96,11 +95,11 @@ export class EditPetPageComponent {
         },
         () => console.log("HTTP Request complete")
       );
-    }else{
+    } else {
       this.errorMessage = 'Please fill all the required fields';
       this.editPetFailed = true;
     }
-    
+
   }
 
   get name() { return this.editPetForm.get('name'); }
@@ -113,5 +112,5 @@ export class EditPetPageComponent {
 
   get country() { return this.editPetForm.get('country') };
 
-  
+
 }
