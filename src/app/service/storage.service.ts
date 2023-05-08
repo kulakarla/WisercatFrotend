@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
 const USER_KEY = 'auth-user';
+const PET_DATA = 'pet-data';
 
 @Injectable({
   providedIn: 'root'
@@ -18,12 +19,12 @@ export class StorageService {
   }
 
   public savePet(pet: any): void {
-    window.sessionStorage.removeItem("PET_DATA");
-    window.sessionStorage.setItem("PET_DATA", JSON.stringify(pet));
+    window.sessionStorage.removeItem(PET_DATA);
+    window.sessionStorage.setItem(PET_DATA, JSON.stringify(pet));
   }
 
   public getPet(): any {
-    const pet = window.sessionStorage.getItem("PET_DATA");
+    const pet = window.sessionStorage.getItem(PET_DATA);
     if(pet) {
       return JSON.parse(pet);
     }
