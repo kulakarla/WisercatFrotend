@@ -14,6 +14,7 @@ import { MatTableModule } from '@angular/material/table'
 import { RouterModule } from '@angular/router';
 import { SortableHeaderDirective } from 'src/sortable.header.directive';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { EditPetComponent } from './editpet/editpet.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AddPetComponent,
     LoginComponent,
     NavBarComponent,
-    SortableHeaderDirective
+    SortableHeaderDirective,
+    EditPetComponent
   ],
   imports: [
     BrowserModule,

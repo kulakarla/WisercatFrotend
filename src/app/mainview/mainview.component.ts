@@ -11,6 +11,8 @@ import { SortableHeaderDirective, SortEvent, compare } from 'src/sortable.header
 export class MainviewComponent implements OnInit {
   pets: Pet[] = [];
   data: Pet[] = [];
+
+  petToUpdate: Pet;
   
   
   constructor(public petService: PetService){}
@@ -51,6 +53,10 @@ export class MainviewComponent implements OnInit {
   }
 
   
+  edit(pet: Pet){
+    console.log(pet);
+    this.petToUpdate = pet;
+  }
   
 }
 
