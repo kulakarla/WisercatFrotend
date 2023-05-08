@@ -66,7 +66,6 @@ export class AddPetComponent implements OnInit {
       console.log(this.addPetForm.value);
       this.petService.addPet(this.addPetForm.value).subscribe(
         response => {
-          console.log(response);
           this.addPetFailed = false;
           this.router.navigate(['/'])
         },

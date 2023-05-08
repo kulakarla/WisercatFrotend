@@ -42,9 +42,7 @@ export class EditPetPageComponent {
 
   ngOnInit() {
 
-    console.log("JOU")
     this.petInput = this.storageService.getPet();
-    console.log(this.petInput);
     this.editPetForm = new FormGroup({
       idCode: new FormControl(this.petInput.idCode, [ Validators.required, Validators.pattern("[0-9]{8}")]),
       name: new FormControl(this.petInput.name, Validators.required),
@@ -87,9 +85,7 @@ export class EditPetPageComponent {
       }
       this.petService.editPet(fullPetResponse).subscribe(
         res => {
-          console.log(res);
           this.editPetFailed = false;
-          //window.location.reload();
           this.router.navigate(["/"]);
 
         },
