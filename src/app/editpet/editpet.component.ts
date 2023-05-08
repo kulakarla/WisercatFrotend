@@ -20,7 +20,7 @@ export class EditPetComponent implements OnInit {
 
   @Input() petInput: Pet;
 
-  @Output() onSuccessfulEdit = new EventEmitter();
+  @Output() close: EventEmitter<void> = new EventEmitter<void>();
 
   editPetForm: FormGroup;
 
@@ -90,7 +90,7 @@ export class EditPetComponent implements OnInit {
         res => {
           console.log(res);
           this.editPetFailed = false;
-          this.editPetForm.reset();
+          window.location.reload();
 
         },
         error => {
@@ -117,8 +117,10 @@ export class EditPetComponent implements OnInit {
 
   get country() { return this.editPetForm.get('country') };
 
-  closeModal(){
-    this.onSuccessfulEdit.emit();
+  onModalClose(): void {
+    this.close.emit();
   }
+
+  
 
 }

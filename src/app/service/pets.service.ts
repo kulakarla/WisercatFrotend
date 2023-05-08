@@ -29,8 +29,6 @@ export class PetService {
     }
 
     public editPet(pet: any): Observable<any>{
-        console.log("Editing a pet");
-        console.log(pet);
         return this.http.put(PET_API + this.storageService.getUser() + "/edit", pet, { headers })
     }
 

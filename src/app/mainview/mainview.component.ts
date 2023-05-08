@@ -30,10 +30,6 @@ export class MainviewComponent implements OnInit {
   }
 
 
-
-
-
-
   @ViewChildren(SortableHeaderDirective)
   headers: QueryList<SortableHeaderDirective>;
 
@@ -75,7 +71,6 @@ export class MainviewComponent implements OnInit {
     this.petToUpdate = pet;
   }
 
-  
   
 }
 
