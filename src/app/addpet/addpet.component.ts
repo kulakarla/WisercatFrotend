@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
 export class AddPetComponent implements OnInit {
   title = 'AddPet';
 
-  addPostForm: FormGroup;
+  addPetForm: FormGroup;
 
   colorList: any;
 
@@ -24,7 +24,7 @@ export class AddPetComponent implements OnInit {
 
   errorMessage: string;
 
-  addPostFailed: any;
+  addPetFailed: any;
 
   formSubmitted: boolean;
 
@@ -49,7 +49,7 @@ export class AddPetComponent implements OnInit {
 
 
 
-    this.addPostForm = new FormGroup({
+    this.addPetForm = new FormGroup({
       idCode: new FormControl('', [ Validators.required, Validators.pattern("[0-9]{8}")]),
       name: new FormControl('', Validators.required),
       color: new FormControl('', Validators.required),
@@ -62,37 +62,36 @@ export class AddPetComponent implements OnInit {
 
   onSubmit() {
     this.formSubmitted = true;
-    if (this.addPostForm.valid) {
-      console.log(this.addPostForm.value);
-      this.petService.addPet(this.addPostForm.value).subscribe(
+    if (this.addPetForm.valid) {
+      console.log(this.addPetForm.value);
+      this.petService.addPet(this.addPetForm.value).subscribe(
         response => {
           console.log(response);
-          this.addPostFailed = false;
+          this.addPetFailed = false;
           this.router.navigate(['/'])
         },
         error => {
           console.log(error);
           this.errorMessage = error.error;
-          this.addPostFailed = true;
+          this.addPetFailed = true;
         },
         () => console.log("HTTP Request complete")
       );
     } else {
       this.errorMessage = 'Please fill all the required fields';
-      this.addPostFailed = true;
+      this.addPetFailed = true;
     }
   }
 
-  get name() { return this.addPostForm.get('name'); }
+  get name() { return this.addPetForm.get('name'); }
 
-  get idCode() { return this.addPostForm.get('idCode'); }
+  get idCode() { return this.addPetForm.get('idCode'); }
 
-  get animal() { return this.addPostForm.get('animal') };
+  get animal() { return this.addPetForm.get('animal') };
 
-  get color() { return this.addPostForm.get('color') };
+  get color() { return this.addPetForm.get('color') };
 
-  get country() { return this.addPostForm.get('country') };
-
+  get country() { return this.addPetForm.get('country') };
 
 
 
