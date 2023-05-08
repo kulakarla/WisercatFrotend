@@ -46,7 +46,7 @@ export class EditPetPageComponent {
     this.petInput = this.storageService.getPet();
     console.log(this.petInput);
     this.editPetForm = new FormGroup({
-      idCode: new FormControl(this.petInput.idCode, Validators.required),
+      idCode: new FormControl(this.petInput.idCode, [ Validators.required, Validators.pattern("[0-9]{8}")]),
       name: new FormControl(this.petInput.name, Validators.required),
       color: new FormControl('', Validators.required),
       animal: new FormControl('', Validators.required),

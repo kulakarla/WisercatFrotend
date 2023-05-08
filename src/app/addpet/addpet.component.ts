@@ -50,7 +50,7 @@ export class AddPetComponent implements OnInit {
 
 
     this.addPostForm = new FormGroup({
-      idCode: new FormControl('', Validators.required),
+      idCode: new FormControl('', [ Validators.required, Validators.pattern("[0-9]{8}")]),
       name: new FormControl('', Validators.required),
       color: new FormControl('', Validators.required),
       animal: new FormControl('', Validators.required),

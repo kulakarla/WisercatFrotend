@@ -28,6 +28,9 @@
                         <div *ngIf="idCode.errors?.['required'] && idCode.touched" class="invalid-feedback d-block" role="alert">
                             Code is required
                         </div>
+                        <div *ngIf="idCode.errors?.['pattern'] && idCode.touched" class="invalid-feedback d-block" role="alert">
+                            Code must be 8 numbers long
+                        </div>
                     </div>
 
                     <div class="mb-3">
