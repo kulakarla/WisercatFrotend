@@ -3,11 +3,19 @@ import { PetService } from '../service/pets.service';
 import { Pet } from '../models/Pet';
 import { SortableHeaderDirective, SortEvent, compare } from 'src/sortable.header.directive';
 import { Subscription, interval } from 'rxjs';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { StorageService } from '../service/storage.service';
+import { Router } from '@angular/router';
+
+declare var bootstrap: any;
+
 @Component({
   selector: 'app-mainview',
   templateUrl: './mainview.component.html',
   styleUrls: ['./mainview.component.css']
 })
+
+
 
 export class MainviewComponent implements OnInit {
   pets: Pet[] = [];
@@ -18,16 +26,28 @@ export class MainviewComponent implements OnInit {
   timerSubscription: Subscription;
 
   interval: any;
+
+  
+
+  formModal: any;
   
   
-  constructor(public petService: PetService){}
+  constructor(public petService: PetService, public storageService: StorageService, public router: Router){}
 
   ngOnInit(): void {
-    this.refreshData();
-    this.interval = setInterval(() => {
-      this.refreshData();
-    }, 1000);
+    this.petService.getPets().subscribe((response => {
+      this.pets = response;
+      this.data = response;
+    }));
+
+    this.formModal = new bootstrap.Modal(document.getElementById("exampleModal"));
+
   }
+
+  closeModal(){
+    this.formModal.removeData();
+  }
+
 
 
   @ViewChildren(SortableHeaderDirective)
@@ -67,8 +87,10 @@ export class MainviewComponent implements OnInit {
 
   
   edit(pet: Pet){
-    console.log(pet);
     this.petToUpdate = pet;
+    this.storageService.savePet(this.petToUpdate);
+    this.router.navigate(["/edit"]);
+    //this.formModal.show();
   }
 
   

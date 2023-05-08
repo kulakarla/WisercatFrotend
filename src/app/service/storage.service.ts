@@ -17,6 +17,20 @@ export class StorageService {
     window.sessionStorage.setItem(USER_KEY, JSON.stringify(user));
   }
 
+  public savePet(pet: any): void {
+    window.sessionStorage.removeItem("PET_DATA");
+    window.sessionStorage.setItem("PET_DATA", JSON.stringify(pet));
+  }
+
+  public getPet(): any {
+    const pet = window.sessionStorage.getItem("PET_DATA");
+    if(pet) {
+      return JSON.parse(pet);
+    }
+
+    return {}
+  }
+
   public getUser(): any {
     const user = window.sessionStorage.getItem(USER_KEY);
     if (user) {

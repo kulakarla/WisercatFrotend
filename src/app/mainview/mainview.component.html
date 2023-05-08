@@ -27,9 +27,9 @@
                         <td>{{ pet.color }}</td>
                         <td>{{ pet.country }}</td>
                         <td>
-                            <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="edit(pet)">Edit pet</a>
+                            <a class="btn btn-primary" (click)="edit(pet)">Edit pet</a>
                         </td>
-                    </tr>
+                    </tr> <!--data-bs-toggle="modal" data-bs-target="#exampleModal" -->
                 </tbody>
             </table>
         </div>
@@ -44,7 +44,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Edit pet</h5>
-          <button type="disposeBtn" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="disposeBtn" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="closeModal()"></button>
         </div>
         <div class="modal-body">
           <app-editpet *ngIf="petToUpdate" [petInput]="petToUpdate"></app-editpet>
