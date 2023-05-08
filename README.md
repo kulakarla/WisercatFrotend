@@ -27,9 +27,15 @@ SpringBoot version 3.0.6
 
 ## Business rules
 
+User password must be atleast of length 5
+Users can enter their pet id codes themselves, however, they must be exactly 8 digits long
+Every pet id code must be unique, the user must enter a new one if their desired one alreayd exists
+Pet name can be any string of length 1
+Pet type (animal), fur color and country can only be predefined values from the database, user cannot 
 
 
-## Thoughts
+
+## Mõtteid
 
 Kogu ülesandele kulus kokku umbes 30 tundi. Backend ei valmistanud erilisi probleeme kuna SpringBoot ei ole endale võõras asi,
 ent frondis mõni asi võttis ikka pusimist. Kõige keerulisemaks osutus lemmiklooma lisamine ja muutmine, kus soovitud pop-up'e kasutavat lahendust
