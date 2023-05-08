@@ -20,14 +20,18 @@ export class PetService {
     
  
     public addPet(pet: any): Observable<any>{
-        console.log("Button pressed");
         return this.http.post(PET_API + this.storageService.getUser() + "/add", pet, { headers });
     }
 
     
     public getPets(): Observable<Pet[]>{
-        console.log("Trying to fetch pets...")
         return this.http.get<Pet[]>(PET_API + this.storageService.getUser(), { headers });
+    }
+
+    public editPet(pet: any): Observable<any>{
+        console.log("Editing a pet");
+        console.log(pet);
+        return this.http.put(PET_API + this.storageService.getUser() + "/edit", pet, { headers })
     }
 
 }

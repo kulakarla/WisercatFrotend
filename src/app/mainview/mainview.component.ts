@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChildren, QueryList } from '@angular/core';
 import { PetService } from '../service/pets.service';
 import { Pet } from '../models/Pet';
 import { SortableHeaderDirective, SortEvent, compare } from 'src/sortable.header.directive';
+import { Subscription, interval } from 'rxjs';
 @Component({
   selector: 'app-mainview',
   templateUrl: './mainview.component.html',
@@ -13,18 +14,25 @@ export class MainviewComponent implements OnInit {
   data: Pet[] = [];
 
   petToUpdate: Pet;
+
+  timerSubscription: Subscription;
+
+  interval: any;
   
   
   constructor(public petService: PetService){}
 
   ngOnInit(): void {
-    this.petService.getPets().subscribe((response => {
-        this.pets = response;
-        this.data = response;
-      }
-      
-    ));
+    this.refreshData();
+    this.interval = setInterval(() => {
+      this.refreshData();
+    }, 1000);
   }
+
+
+
+
+
 
   @ViewChildren(SortableHeaderDirective)
   headers: QueryList<SortableHeaderDirective>;
@@ -47,6 +55,15 @@ export class MainviewComponent implements OnInit {
       });
     }
   }
+
+  refreshData(){
+    this.petService.getPets().subscribe((response => {
+      this.pets = response;
+      this.data = response;
+    }));
+  }
+
+
 
   reverseArray(){
     this.pets = this.data.reverse();

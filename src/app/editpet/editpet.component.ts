@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { PetService } from '../service/pets.service';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { OptionService } from '../service/option-service.component';
@@ -19,6 +19,8 @@ export class EditPetComponent implements OnInit {
   title = 'EditPet';
 
   @Input() petInput: Pet;
+
+  @Output() onSuccessfulEdit = new EventEmitter();
 
   editPetForm: FormGroup;
 
@@ -73,31 +75,6 @@ export class EditPetComponent implements OnInit {
     })
   }
 
-
-  /**
-  onSubmit() {
-    this.formSubmitted = true;
-    if (this.addPostForm.valid) {
-      console.log(this.addPostForm.value);
-      this.petService.addPet(this.addPostForm.value).subscribe(
-        response => {
-          console.log(response);
-          this.addPostFailed = false;
-          this.router.navigate(['/'])
-        },
-        error => {
-          console.log(error);
-          this.errorMessage = error.error;
-          this.addPostFailed = true;
-        },
-        () => console.log("HTTP Request complete")
-      );
-    } else {
-      this.errorMessage = 'Please fill all the required fields';
-      this.addPostFailed = true;
-    }
-  }*/
-
   onSubmit(){
     this.formSubmitted = true;
     if(this.editPetForm.valid){
@@ -109,7 +86,20 @@ export class EditPetComponent implements OnInit {
         animal: this.editPetForm.value.animal.name,
         country: this.editPetForm.value.country.name
       }
-      console.log(fullPetResponse);
+      this.petService.editPet(fullPetResponse).subscribe(
+        res => {
+          console.log(res);
+          this.editPetFailed = false;
+          this.editPetForm.reset();
+
+        },
+        error => {
+          console.log(error);
+          this.errorMessage = error.error;
+          this.editPetFailed = true;
+        },
+        () => console.log("HTTP Request complete")
+      );
     }else{
       this.errorMessage = 'Please fill all the required fields';
       this.editPetFailed = true;
@@ -127,7 +117,8 @@ export class EditPetComponent implements OnInit {
 
   get country() { return this.editPetForm.get('country') };
 
-
-
+  closeModal(){
+    this.onSuccessfulEdit.emit();
+  }
 
 }
