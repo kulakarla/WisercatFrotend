@@ -4,6 +4,7 @@ import { MainviewComponent } from './mainview/mainview.component';
 import { AddpostComponent } from './addpost/addpost.component';
 import { LoginComponent } from './login/login.component';
 import { authGuard } from './service/authguard.service';
+import { HAHComponent } from './hah/hah.component';
 
 const routes: Routes = [
   { path: '', 
@@ -19,6 +20,10 @@ const routes: Routes = [
     path: 'login', 
     component: LoginComponent,
   },
+  {
+    path: 'hah',
+    component: HAHComponent
+  }
 ];
 
 @NgModule({
