@@ -65,7 +65,6 @@ export class MainviewComponent implements OnInit {
   }
 
   delete(pet: Pet){
-    console.log(pet.id);
     this.petService.deletePet(pet.id).subscribe((
       response => {
         console.log(response);

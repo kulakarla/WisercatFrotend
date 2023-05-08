@@ -15,17 +15,14 @@ export class OptionService {
   constructor(private http: HttpClient) { }
 
   public getColors(): Observable<any[]>{
-    console.log("Trying to fetch stuff...")
     return this.http.get<any[]>(OPTION_API + "color", { headers });
   }
 
   public getAnimals(): Observable<any[]>{
-    console.log("Trying to fetch stuff...")
     return this.http.get<any[]>(OPTION_API + "animal", { headers });
   }
 
   public getCountries(): Observable<any[]>{
-    console.log("Trying to fetch stuff...")
     return this.http.get<any[]>(OPTION_API + "country", { headers });
   }
 
