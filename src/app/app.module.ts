@@ -13,6 +13,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table'
 import { RouterModule } from '@angular/router';
 import { SortableHeaderDirective } from 'src/sortable.header.directive';
+import { TestComponentComponent } from './test-component/test-component.component';
+import { HAHComponent } from './hah/hah.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { SortableHeaderDirective } from 'src/sortable.header.directive';
     AddpostComponent,
     LoginComponent,
     NavBarComponent,
-    SortableHeaderDirective
+    SortableHeaderDirective,
+    TestComponentComponent,
+    HAHComponent
   ],
   imports: [
     BrowserModule,
