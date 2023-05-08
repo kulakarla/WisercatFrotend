@@ -34,6 +34,8 @@ export class EditPetComponent implements OnInit {
 
   formSubmitted: boolean;
 
+  editPetId: number;
+
   constructor(private petService: PetService, private optionService: OptionService, private router: Router) {
 
   }
@@ -63,12 +65,14 @@ export class EditPetComponent implements OnInit {
       const selectedColor = this.colorList.find(color => color.name === this.petInput.color);
       const selectedCountry = this.countryList.find(country => country.name === this.petInput.country);
       const selectedAnimal = this.animalList.find(animal => animal.name === this.petInput.animal);
+      this.editPetId = this.petInput.id;
 
       this.editPetForm.controls['color'].setValue(selectedColor);
       this.editPetForm.controls['country'].setValue(selectedCountry);
       this.editPetForm.controls['animal'].setValue(selectedAnimal);
     })
   }
+
 
   /**
   onSubmit() {
@@ -94,7 +98,24 @@ export class EditPetComponent implements OnInit {
     }
   }*/
 
-  onSubmit(){}
+  onSubmit(){
+    this.formSubmitted = true;
+    if(this.editPetForm.valid){
+      const fullPetResponse = {
+        id: this.editPetId,
+        name: this.editPetForm.value.name,
+        idCode: this.editPetForm.value.idCode,
+        color: this.editPetForm.value.color.name,
+        animal: this.editPetForm.value.animal.name,
+        country: this.editPetForm.value.country.name
+      }
+      console.log(fullPetResponse);
+    }else{
+      this.errorMessage = 'Please fill all the required fields';
+      this.editPetFailed = true;
+    }
+    
+  }
 
   get name() { return this.editPetForm.get('name'); }
 
