@@ -1,27 +1,37 @@
-# AngularBootstrap
+# Wisercat Pet Dashboard
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.0.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.0
 
-## Development server
+## Front end run
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Back end run
 
-## Build
+Download the application. Navigate to `src/main/java/excercises/wisercat3/Wisercat3Application.java`. Run `main()` method. The API is running on
+`http://localhost:8080/`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## API Documentation
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+API Documentation can be found at `http://localhost:8080/swagger-ui/index.html`
 
-## Running end-to-end tests
+## Main Framework Versions
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Angular CLI version 16.0.0
+Bootstrap version 5.2.3
+SpringBoot version 3.0.6
 
-## Further help
++ additional libraries and dependecies.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Business rules
+
+
+
+## Thoughts
+
+Kogu ülesandele kulus kokku umbes 30 tundi. Backend ei valmistanud erilisi probleeme kuna SpringBoot ei ole endale võõras asi,
+ent frondis mõni asi võttis ikka pusimist. Kõige keerulisemaks osutus lemmiklooma lisamine ja muutmine, kus soovitud pop-up'e kasutavat lahendust
+lõpuks ei suutnud implementeerida, sest tuleb välja, et Bootstrap Modal'id on üpris keerulised ja omanäolised asjad. Kui oleksin kohe teinud lihtsalt praeguse
+lahenduse, oleks ülesanne saanud tehtud arvatavasti 10 tundi kiiremini. Informatsiooni leidsin dokumentatsioonist, StackOverflow-st, baeldungist (parim koht praktiliste SpringBoot materjalideks) ning YouTube-st. Samuti kasutasin MDN Web Docse et võimalikult hästi järgida HTTP standardeid.

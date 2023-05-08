@@ -5,7 +5,7 @@ import { AddPetComponent } from './addpet/addpet.component';
 import { LoginComponent } from './login/login.component';
 import { authGuard } from './service/authguard.service';
 import { OnSameUrlNavigation } from '@angular/router';
-import { EditPetPageComponent } from './edit-pet-page/edit-pet-page.component';
+import { EditpetComponent } from './editpet/editpet.component';
 
 const routes: Routes = [
   { path: '', 
@@ -23,7 +23,7 @@ const routes: Routes = [
   },
   {
     path: 'edit',
-    component: EditPetPageComponent,
+    component: EditpetComponent,
   }
 ];
 

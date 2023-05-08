@@ -8,11 +8,11 @@ import { combineLatest } from 'rxjs';
 import { StorageService } from '../service/storage.service';
 
 @Component({
-  selector: 'app-edit-pet-page',
-  templateUrl: './edit-pet-page.component.html',
-  styleUrls: ['./edit-pet-page.component.css']
+  selector: 'app-editpet',
+  templateUrl: './editpet.component.html',
+  styleUrls: ['./editpet.component.css']
 })
-export class EditPetPageComponent {
+export class EditpetComponent {
   title = 'EditPet';
 
 
