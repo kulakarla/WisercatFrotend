@@ -16,6 +16,7 @@
                     <th scope="col" sortable="color" (sort)="onSort($event)">Fur color</th>
                     <th scope="col" sortable="country" (sort)="onSort($event)">Country</th>
                     <th width="100" class="text-center">Edit</th>
+                    <th width="100" scope="col">Delete</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -28,6 +29,9 @@
                         <td>{{ pet.country }}</td>
                         <td>
                             <a class="btn btn-primary" (click)="edit(pet)">Edit pet</a>
+                        </td>
+                        <td>
+                            <a class="btn btn-danger" (click)="delete(pet)">Delete</a>
                         </td>
                     </tr>
                 </tbody>

@@ -23,10 +23,7 @@ export class MainviewComponent implements OnInit {
   constructor(public petService: PetService, public storageService: StorageService, public router: Router){}
 
   ngOnInit(): void {
-    this.petService.getPets().subscribe((response => {
-      this.pets = response;
-      this.data = response;
-    }));
+    this.refreshData();
 
   }
 
@@ -67,7 +64,21 @@ export class MainviewComponent implements OnInit {
     this.router.navigate(["/edit"]);
   }
 
-  
+  delete(pet: Pet){
+    console.log(pet.id);
+    this.petService.deletePet(pet.id).subscribe((
+      response => {
+        console.log(response);
+        this.refreshData();
+    }));
+  }
+
+  refreshData(){
+    this.petService.getPets().subscribe((response => {
+      this.pets = response;
+      this.data = response;
+    }));
+  }
 }
 
 

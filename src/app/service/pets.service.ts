@@ -32,4 +32,8 @@ export class PetService {
         return this.http.put(PET_API + this.storageService.getUser() + "/edit", pet, { headers })
     }
 
+    public deletePet(id: number): Observable<any>{
+        return this.http.delete(PET_API + this.storageService.getUser() + "/delete/" + id)
+    }
+
 }
