@@ -1,4 +1,4 @@
-<app-nav-bar></app-nav-bar>
+<app-navbar></app-navbar>
 <body class="vh-100 bg-light">
     <div class="container">
         <div class="py-5 text-center">
@@ -9,7 +9,7 @@
             <table class="table">
                 <thead>
                 <tr>
-                    <th scope="col" (click)="reverseArray()">#</th>
+                    <th scope="col" (click)="reverseArray()" role="button">#</th>
                     <th scope="col" sortable="name" (sort)="onSort($event)">Name</th>
                     <th scope="col" sortable="idCode" (sort)="onSort($event)">Code</th>
                     <th scope="col" sortable="animal" (sort)="onSort($event)">Type</th>

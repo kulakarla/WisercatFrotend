@@ -1,4 +1,4 @@
-<app-nav-bar></app-nav-bar>
+<app-navbar></app-navbar>
 <body class="bg-light">
     <div class="container d-flex flex-column align-items-center">
         <div class="py-5 text-center">
@@ -28,7 +28,7 @@
                             Code is required
                         </div>
                         <div *ngIf="idCode.errors?.['pattern'] && idCode.touched" class="invalid-feedback d-block" role="alert">
-                            Code must be 8 numbers long
+                            Code must be exactly 8 digits long
                         </div>
                     </div>
 

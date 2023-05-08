@@ -8,7 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AddPetComponent } from './addpet/addpet.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { NavbarComponent } from './navbar/navbar.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table'
 import { RouterModule } from '@angular/router';
@@ -22,7 +22,7 @@ import { EditpetComponent } from './editpet/editpet.component';
     MainviewComponent,
     AddPetComponent,
     LoginComponent,
-    NavBarComponent,
+    NavbarComponent,
     SortableHeaderDirective,
     EditpetComponent
   ],
